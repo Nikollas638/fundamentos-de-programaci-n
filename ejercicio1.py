@@ -1,4 +1,5 @@
-n=int(input("numero "))
+print("convertir un numero dado por el usuario (n) en su representacion en base b (2≤b<10)")
+n=int(input("inserte numero a convertir: "))
 b=int(input("base 2≤b>10 "))
 residuo=""
 conversion=""

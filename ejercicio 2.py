@@ -1,4 +1,5 @@
-n = int(input("limite de la lista de numeros divisibles por 2, 3 o 5 "))
+print("escribir una lista de numeros de 0 hasta n, cuando sean divisibles por 2, 3 o 5")
+n = int(input("limite de la lista de numeros divisibles por 2, 3 o 5: "))
 i= int(2)
 coma="\n"
 numero=""
