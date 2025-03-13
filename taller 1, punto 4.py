@@ -10,7 +10,7 @@ else:
     menor=n2
     
 if n1%2 ==0 and n2%2 ==0 or n1%2 ==1 and n2%2 ==1:
-    for i in range(1,menor,1):
+    for i in range(1,menor+1,1):
         r1=n1%i
         r2=n2%i
         if r1==0 and r2==0:
