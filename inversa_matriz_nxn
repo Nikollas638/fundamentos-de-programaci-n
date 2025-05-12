@@ -1,0 +1,49 @@
+
+n = int(input("Ingrese el tamaño n de la matriz cuadrada (n x n): "))
+matriz = []
+for i in range(n):
+    fila = []
+    for j in range(n):
+        valor = float(input(f"Ingrese el elemento {j+1} de la fila {i+1}: "))
+        fila.append(valor)
+    matriz.append(fila)
+
+
+def identidad(n):
+    return [[1.0 if i == j else 0.0 for j in range(n)] for i in range(n)]
+
+def gauss_jordan(matriz):
+    n = len(matriz)
+    A = [fila[:] for fila in matriz]
+    I = identidad(n)
+    
+    for i in range(n):
+        if A[i][i] == 0.0:
+            for j in range(i+1, n):
+                if A[j][i] != 0.0:
+                    A[i], A[j] = A[j], A[i]
+                    I[i], I[j] = I[j], I[i]
+                    break
+            else:
+                print("La matriz no es invertible.")
+                return None
+
+        factor = A[i][i]
+        for j in range(n):
+            A[i][j] /= factor
+            I[i][j] /= factor
+
+        for k in range(n):
+            if k != i:
+                factor = A[k][i]
+                for j in range(n):
+                    A[k][j] -= factor * A[i][j]
+                    I[k][j] -= factor * I[i][j]
+    
+    return I
+
+inversa = gauss_jordan(matriz)
+if inversa:
+    print("\nLa inversa de la matriz es:")
+    for fila in inversa:
+        print(" ".join(f"{num:.3f}" for num in fila))
