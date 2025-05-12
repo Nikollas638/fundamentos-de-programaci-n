@@ -1,0 +1,25 @@
+n = int(input("Ingrese el tamaño n de la matriz cuadrada (n x n): "))
+matriz = []
+for i in range(n):
+    fila = []
+    for j in range(n):
+        valor = float(input(f"Ingrese el elemento {j+1} de la fila {i+1}: "))
+        fila.append(valor)
+    matriz.append(fila)  
+
+print(matriz)
+
+def determinante(m):
+    if len(m) == 1:
+        return m[0][0]
+    if len(m) == 2:
+        return m[0][0]*m[1][1] - m[0][1]*m[1][0]
+    
+    det = 0
+    for col in range(len(m)):
+        submatriz = [fila[:col] + fila[col+1:] for fila in m[1:]]
+        signo = (-1) ** col
+        det += signo * m[0][col] * determinante(submatriz)
+    return det
+
+print(f"El determinante de la matriz es: {determinante(matriz)}")
