@@ -1,0 +1,21 @@
+filas = int(input("Ingrese el n de filas de la matriz"))
+columnas = int(input("Ingrese el n de columnas de la matriz"))
+matriz = []
+matriz_trans = []
+for i in range(filas):
+    fila = []
+    for j in range(columnas):
+        valor = float(input(f"Ingrese el elemento {j+1} de la fila {i+1}: "))
+        fila.append(valor)
+    matriz.append(fila)  
+
+print(matriz)
+
+for i in range(columnas):
+    fila_trans = []
+    for j in range(filas):
+        fila_trans.append(matriz[j][i])
+    matriz_trans.append(fila_trans)
+
+print(matriz_trans)  
+
